@@ -1,0 +1,17 @@
+.gitignore
+README.md
+api.module.ts
+api/api.ts
+api/nonRef.service.ts
+api/ref.service.ts
+configuration.ts
+encoder.ts
+git_push.sh
+index.ts
+model/exampleNonRef.ts
+model/exampleRef.ts
+model/fooBarObject.ts
+model/models.ts
+model/nullableEnum.ts
+model/oneOf.ts
+variables.ts

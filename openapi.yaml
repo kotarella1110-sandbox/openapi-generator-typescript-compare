@@ -1,0 +1,174 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Example
+paths:
+  /example/ref:
+    get:
+      operationId: getRef
+      tags:
+        - ref
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExampleRef"
+  /example/non_ref:
+    get:
+      operationId: getNonRef
+      tags:
+        - nonRef
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExampleNonRef"
+components:
+  schemas:
+    ExampleRef:
+      type: object
+      properties:
+        oneOf:
+          $ref: "#/components/schemas/OneOf"
+        arrayOneOf:
+          $ref: "#/components/schemas/ArrayOneOf"
+        nullableEnum:
+          $ref: "#/components/schemas/NullableEnum"
+        date:
+          $ref: "#/components/schemas/Date"
+        dateTime:
+          $ref: "#/components/schemas/DateTime"
+    OneOf:
+      oneOf:
+        - type: string
+        - type: number
+        - type: integer
+        - type: boolean
+        - type: array
+          items:
+            type: number
+        - type: array
+          items:
+            type: integer
+        - type: array
+          items:
+            type: boolean
+        - type: array
+          items:
+            type: string
+        - type: array
+          items:
+            $ref: "#/components/schemas/FooBarObject"
+        - $ref: "#/components/schemas/FooBarObject"
+    ArrayOneOf:
+      type: array
+      items:
+        $ref: "#/components/schemas/OneOf"
+    FooBarObject:
+      type: object
+      properties:
+        foo:
+          type: string
+        bar:
+          type: number
+    NullableEnum:
+      type: string
+      enum:
+        - "00"
+        - "01"
+        - "02"
+      nullable: true
+    Date:
+      type: string
+      example: "2020-01-31"
+      format: date
+    DateTime:
+      type: string
+      example: "2020-01-31T23:59:59+09:00"
+      format: date-time
+    ExampleNonRef:
+      type: object
+      properties:
+        oneOf:
+          oneOf:
+            - type: string
+            - type: number
+            - type: integer
+            - type: boolean
+            - type: array
+              items:
+                type: number
+            - type: array
+              items:
+                type: integer
+            - type: array
+              items:
+                type: boolean
+            - type: array
+              items:
+                type: string
+            - type: array
+              items:
+                type: object
+                properties:
+                  foo:
+                    type: string
+                  bar:
+                    type: number
+            - type: object
+              properties:
+                foo:
+                  type: string
+                bar:
+                  type: number
+        arrayOneOf:
+          type: array
+          items:
+            oneOf:
+              - type: string
+              - type: number
+              - type: integer
+              - type: boolean
+              - type: array
+                items:
+                  type: number
+              - type: array
+                items:
+                  type: integer
+              - type: array
+                items:
+                  type: boolean
+              - type: array
+                items:
+                  type: string
+              - type: array
+                items:
+                  type: object
+                  properties:
+                    foo:
+                      type: string
+                    bar:
+                      type: number
+              - type: object
+                properties:
+                  foo:
+                    type: string
+                  bar:
+                    type: number
+        nullableEnum:
+          type: string
+          enum:
+            - "00"
+            - "01"
+            - "02"
+          nullable: true
+        date:
+          type: string
+          format: date
+        dateTime:
+          type: string
+          format: date-time

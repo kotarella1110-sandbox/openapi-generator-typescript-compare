@@ -1,0 +1,13 @@
+.gitignore
+src/apis/NonRefApi.ts
+src/apis/RefApi.ts
+src/apis/index.ts
+src/index.ts
+src/models/ExampleNonRef.ts
+src/models/ExampleRef.ts
+src/models/FooBarObject.ts
+src/models/NullableEnum.ts
+src/models/OneOf.ts
+src/models/index.ts
+src/runtime.ts
+tsconfig.json

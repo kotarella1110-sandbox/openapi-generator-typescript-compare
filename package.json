@@ -1,0 +1,33 @@
+{
+  "name": "openapi-generator-typescript-compare",
+  "description": "",
+  "scripts": {
+    "prepare": "husky install",
+    "format:check": "prettier --check '**/*.yaml'",
+    "format:fix": "prettier --write '**/*.yaml'",
+    "lint": "spectral lint -v openapi.yaml",
+    "clean": "rimraf dist",
+    "pregenerate": "npm run clean",
+    "generate": "sh ./openapi-generate.sh",
+    "watch": "chokidar 'openapi.yaml' -c 'npm run generate'",
+    "mock": "prism mock openapi.yaml"
+  },
+  "lint-staged": {
+    "*.yaml": [
+      "npm run format:fix",
+      "npm run lint",
+      "npm run generate"
+    ]
+  },
+  "author": "Kotaro Sugawara <kotarella1110@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@stoplight/prism-cli": "^4.1.2",
+    "@stoplight/spectral": "^5.9.0",
+    "chokidar-cli": "^2.1.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2"
+  }
+}
