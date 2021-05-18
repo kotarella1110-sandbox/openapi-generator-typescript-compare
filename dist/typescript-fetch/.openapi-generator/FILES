@@ -1,3 +1,4 @@
+.openapi-generator-ignore
 apis/NonRefApi.ts
 apis/RefApi.ts
 apis/index.ts
