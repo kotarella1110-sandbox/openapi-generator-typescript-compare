@@ -21,3 +21,5 @@ docker run --rm -v "${PWD}:/local" \
   -i /local/openapi.yaml \
   -g typescript-redux-query \
   -o /local/dist/typescript-redux-query
+
+npx openapi2aspida

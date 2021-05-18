@@ -1,4 +1,5 @@
 .gitignore
+.openapi-generator-ignore
 src/apis/NonRefApi.ts
 src/apis/RefApi.ts
 src/apis/index.ts
